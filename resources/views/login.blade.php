@@ -2,7 +2,7 @@
 
     <main class="py-10">
        
-        <section class="mt-4 bg-white max-w-[600px] mx-auto p-10 border-2">
+        <section class="mt-4 bg-white max-w-[600px] mx-auto p-10 pb-6 border-2">
              <h1 class="font-bold mb-4 text-3xl">
                 faça login
             </h1>
@@ -12,7 +12,7 @@
             </p>
 
 
-            <form class="flex flex-col" action="/login" method="POST">
+            <form class="flex flex-col" action="{{ route('auth.login') }}" method="POST">
                 @csrf
 
                 <div class="flex flex-col gap-2 mb-4">
@@ -45,7 +45,7 @@
 
                         @error('password')
                             <p class="text-red-500 text-sm">
-                                aaaaa
+                                
                                 {{ $message }}
                             </p>
                        @enderror 
@@ -57,7 +57,9 @@
                     Entrar
                 </button>
             </form>
-
+            <p class="text-center mt-2">
+                Não tem uma conta? <a href="{{ route('site.register') }}" class="underline hover:opacity-50 transition">Registrar-se</a>
+            </p>
 
         </section>
     </main>
