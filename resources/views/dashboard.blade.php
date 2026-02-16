@@ -8,6 +8,20 @@
         <p class="text-center mt-4">
             Bem-vindo ao seu painel de controle! {{ auth()->user()->name }}
         </p>
+
+        <a href="{{ route('habit.create') }}" class="bg-white p-2 font-bold border-2">
+            Cadastrar Hábito
+        </a>
+
+               
+        @session('success')
+            <div class="flex">
+                <p class="bg-green-200 border-2 border-green-700 text-green-800 p-3 block mt-4 max-w-[200px]">
+                    {{ session('success') }}
+                </p>
+            </div>
+        @endsession
+
         <div>
             <h2 class="text-xl mt-4">
                 Meus Hábitos
@@ -29,7 +43,7 @@
                 <p>
                     Você ainda não tem hábitos registrados.
                 </p>
-                <a href="#" class="bg-white p-2 border-2 ">
+                <a href="{{ route('habit.create') }}" class="bg-white p-2 border-2 ">
                     Adicionar um hábito
                 </a>
                 @endforelse
