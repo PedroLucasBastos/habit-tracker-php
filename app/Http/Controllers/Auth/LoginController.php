@@ -17,12 +17,12 @@ class LoginController extends Controller
 
     public function authenticate(LoginRequest $request)
     {
-        $credentials = $request->only(keys: ['mail', 'password']);
+        $credentials = $request->only(keys: ['email', 'password']);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route("site.dashboard"));
+            return redirect()->intended(route('habits.index'));
         }
 
         return back()->withErrors([
@@ -38,6 +38,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect(to: route("site.index"));
+        return redirect(to: route('site.index'));
     }
 }
