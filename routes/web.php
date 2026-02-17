@@ -27,4 +27,5 @@ Route::middleware('auth')->group(function () {
     Route::put('dashboard/habits/{habit}', [HabitController::class, 'update'])->name('habit.update'); */
 
     Route::resource('dashboard/habits', HabitController::class)->except(['show']);
+    Route::get('dashboard/habits/configurar', [HabitController::class, 'settings'])->name('habits.settings');
 });

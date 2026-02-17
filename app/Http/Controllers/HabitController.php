@@ -78,4 +78,11 @@ class HabitController extends Controller
 
         return redirect()->route('habits.index')->with('success', 'Hábito deletado com sucesso!');
     }
+
+    public function settings()
+    {
+        $habits = auth()->user()->habits;
+
+        return view('habits.settings', compact('habits'));
+    }
 }

@@ -1,8 +1,13 @@
 <header class="bg-white border-botton border-b-2 flex intems-center justify-between p-4">
     {{-- logo --}}
-    <a href="{{ route('habits.index') }}" class="habit-btn habit-shadow-lg px-2 py-1 bg-habit-orange">
-        HT
-    </a>
+    <div class="flex gap-2 items-center">
+        <a href="{{ route('habits.index') }}" class="habit-btn habit-shadow-lg px-2 py-1 bg-habit-orange">
+            HT
+        </a>
+        <p class="font-bold text-md">
+            Habit Tracker
+        </p>
+    </div>
     {{-- GitHub e login --}}
     <div>
 
