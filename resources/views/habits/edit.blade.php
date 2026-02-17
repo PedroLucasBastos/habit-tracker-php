@@ -5,7 +5,7 @@
             Ediar Hábito
        </h2>
        <section class="mt-4 bg-white max-w-[600px] mx-auto p-10 pb-6 border-2">
-            <form class="flex flex-col" action="{{route('habit.update', $habit->id)}}" method="POST">
+            <form class="flex flex-col" action="{{route('habits.update', $habit->id)}}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="flex flex-col gap-2 mb-4">

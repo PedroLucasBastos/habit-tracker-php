@@ -9,7 +9,7 @@
             Bem-vindo ao seu painel de controle! {{ auth()->user()->name }}
         </p>
 
-        <a href="{{ route('habit.create') }}" class="bg-white p-2 font-bold border-2">
+        <a href="{{ route('habits.create') }}" class="bg-white p-2 font-bold border-2">
             Cadastrar Hábito
         </a>
 
@@ -38,11 +38,11 @@
                             </span>
                         </p>  
 
-                        <a href="{{ route('habit.edit', $items) }}" class="cursor-pointer bg-blue-500 text-white p-1 hover:opacity-20">
+                        <a href="{{ route('habits.edit', $items) }}" class="cursor-pointer bg-blue-500 text-white p-1 hover:opacity-20">
                                 <x-icons.edit />
                         </a>
                         
-                        <form action="{{ route('habit.destroy', $items) }}" method="POST">
+                        <form action="{{ route('habits.destroy', $items) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submite" class="cursor-pointer bg-red-500 text-white p-1 hover:opacity-20">
@@ -54,7 +54,7 @@
                 <p>
                     Você ainda não tem hábitos registrados.
                 </p>
-                <a href="{{ route('habit.create') }}" class="bg-white p-2 border-2 ">
+                <a href="{{ route('habits.create') }}" class="bg-white p-2 border-2 ">
                     Adicionar um hábito
                 </a>
                 @endforelse
