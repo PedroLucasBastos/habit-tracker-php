@@ -1,3 +1,5 @@
+use Carbon\Carbon;
+
 <x-layout>
 
     <main class="py-10 min-h[calc(100vh-160px)]">
@@ -18,16 +20,33 @@
             </h2>
 
             <ul class="flex flex-col gap-2 mt-2">
+
+
                 @forelse ($habits as $items)
+                    @php
+                        $wasCompletedToday = $items->habitLogs->where('user_id', auth()->id())->where('completed_at', \Carbon\Carbon::today()->toDateString())->isNotEmpty();
+                    
+                    @endphp
+
                 <li class="habit-shadow-lg p-2 bg-habit-bg">
-                    <div class="flex gap-2 items-center">
-                        <input type="checkbox" class="w-5 h-5" {{ $items->completed ? 'checked' : '' }} disabled>
+                    <form 
+                    class="flex gap-2 items-center" 
+                    METHOD="POST" 
+                    id="form-{{ $items->id }}"
+                    action="{{ route('habits.toggle', $items->id) }}">
+                        @csrf
+                        <input 
+                        type="checkbox" 
+                        class="w-5 h-5" {{ $items->is_completed ? 'checked' : '' }} 
+                        {{ $wasCompletedToday ? 'checked' : '' }}
+                        onchange="document.getElementById('form-{{ $items->id }}').submit()"
+                        >
                         <p class="font-bold text-lg">
                            {{ $items->name }}
                             
                         </p>  
 
-                    </div>   
+                    </form>   
                 </li>
                 @empty
                 <p>
