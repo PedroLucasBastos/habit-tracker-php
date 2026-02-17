@@ -2,7 +2,7 @@
 
     <main class="py-10">
        
-        <section class="mt-4 bg-white max-w-[600px] mx-auto p-10 pb-6 border-2">
+        <section class="mt-4 bg-white max-w-[600px] mx-auto p-10 pb-6 habit-shadow">
              <h1 class="font-bold mb-4 text-3xl">
                 faça login
             </h1>
@@ -24,8 +24,7 @@
                         type="email"
                         name="email"
                         placeholder="email@email.com"
-                        class="bg-white p-2 border-2 @error('email') border-red-500 @enderror">
-
+                        class="bg-white p-2 habit-shadow
                        @error('email')
                             <p class="text-red-500 text-sm">
                                 {{ $message }}
@@ -41,7 +40,7 @@
                         type="password"
                         name="password"
                         placeholder="********"
-                        class="bg-white p-2 border-2">
+                        class="bg-white p-2 habit-shadow">
 
                         @error('password')
                             <p class="text-red-500 text-sm">
@@ -53,7 +52,7 @@
                 </div>
                 <button
                     type="submit"
-                    class="bg-white border-2 p-2 hover:bg-gray-200">
+                    class="bg-habit-orange habit-shadow-lg p-2 habit-btn">
                     Entrar
                 </button>
             </form>
