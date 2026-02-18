@@ -23,10 +23,6 @@ use Carbon\Carbon;
 
 
                 @forelse ($habits as $items)
-                    @php
-                        $wasCompletedToday = $items->habitLogs->where('user_id', auth()->id())->where('completed_at', \Carbon\Carbon::today()->toDateString())->isNotEmpty();
-                    
-                    @endphp
 
                 <li class="habit-shadow-lg p-2 bg-habit-bg">
                     <form 
@@ -38,7 +34,7 @@ use Carbon\Carbon;
                         <input 
                         type="checkbox" 
                         class="w-5 h-5" {{ $items->is_completed ? 'checked' : '' }} 
-                        {{ $wasCompletedToday ? 'checked' : '' }}
+                        {{ $items->wasCompletedToday() ? 'checked' : '' }}
                         onchange="document.getElementById('form-{{ $items->id }}').submit()"
                         >
                         <p class="font-bold text-lg">
